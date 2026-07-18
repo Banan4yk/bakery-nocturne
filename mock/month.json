@@ -1,0 +1,10 @@
+{
+  "updated": "18.07 21:14",
+  "months": [ { "month": "2026-07", "sum": 15370, "days": 3, "avg": 5123, "median": 5802, "min": 1246, "max": 8322 } ],
+  "dow":    { "Pt": {"median":8322,"avg":8322,"n":1}, "sob": {"median":5802,"avg":5802,"n":1}, "Nd Narutowicza": {"median":1246,"avg":1246,"n":1} },
+  "days":   [ 
+    { "date":"07-17","dow":"Pt","total":8322 }, 
+    { "date":"07-18","dow":"sob","total":5802 }, 
+    { "date":"07-19","dow":"Nd Narutowicza","total":1246 }
+  ]
+}

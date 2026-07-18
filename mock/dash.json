@@ -1,0 +1,32 @@
+{
+  "date": "2026-07-19",
+  "sheet": "Nd Narutowicza",
+  "ready": true,
+  "reason": "",
+  "ratesDefault": true,
+  "targetKpd": 250,
+  "updated": "18.07 21:14",
+  "total": 1842,
+  "plannedH": 0,
+  "neededH": 7,
+  "gap": -7,
+  "night": { "value": 1246, "hours": 0, "kpd": null },
+  "day":   { "value": 453,  "hours": 0, "kpd": null },
+  "dayKZero": false,
+  "outlets": [
+    { "name": "Narutowicza", "d1": 1842, "d2": 0, "total": 1842 },
+    { "name": "Pomorska",    "d1": 0,    "d2": 0, "total": 0 },
+    { "name": "Kilińskiego", "d1": 0,    "d2": 0, "total": 0 },
+    { "name": "CKD",         "d1": 0,    "d2": 0, "total": 0 },
+    { "name": "Struga",      "d1": 0,    "d2": 0, "total": 0 },
+    { "name": "Kopcinskiego","d1": 0,    "d2": 0, "total": 0 }
+  ],
+  "waves": { "d1": 1842, "d2": 0 },
+  "shiftSum": 1699,
+  "deliverySum": 1842,
+  "history": [
+    { "date": "07-17", "total": 8322 },
+    { "date": "07-18", "total": 5802 },
+    { "date": "07-19", "total": 1246 }
+  ]
+}
