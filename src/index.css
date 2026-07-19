@@ -1,0 +1,162 @@
+:root {
+  --bg-color: #0a0b12;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --accent-1: #7c5cff;
+  --accent-2: #5eb4ff;
+  --status-ok: #12b76a;
+  --status-warn: #f79009;
+  --status-crit: #f04463;
+  --panel-bg: rgba(24, 26, 40, 0.55);
+  --shift-night: #5eb4ff;
+  --shift-day: #f79009;
+}
+
+html.light {
+  --bg-color: #f0f2f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --panel-bg: rgba(255, 255, 255, 0.85);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.hud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass to 3D canvas unless on interactive HUD elements */
+  display: flex;
+  flex-direction: column;
+  padding: env(safe-area-inset-top, 16px) env(safe-area-inset-right, 16px) env(safe-area-inset-bottom, 16px) env(safe-area-inset-left, 16px);
+  z-index: 10;
+}
+
+.hud-container > * {
+  pointer-events: auto;
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+html.light .glass-panel {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; font-weight: 700; }
+.text-4xl { font-size: 2.25rem; font-weight: 700; }
+
+.text-secondary { color: var(--text-secondary); }
+
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+
+.mt-auto { margin-top: auto; }
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+
+/* Status Colors */
+.text-ok { color: var(--status-ok); }
+.text-warn { color: var(--status-warn); }
+.text-crit { color: var(--status-crit); }
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+html.light button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Прокручувані вкладки (Місяць/Штат/Розрахунок) поверх 3D-сцени */
+.view-scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 10;
+  padding: env(safe-area-inset-top, 16px) 16px 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* Місце внизу під плаваючий таб-бар */
+.hud-container { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 96px); }
+@media (max-width: 400px) { .tab-label { display: none; } }
